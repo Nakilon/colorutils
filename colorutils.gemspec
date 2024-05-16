@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name         = "colorutils"
-  spec.version      = "0.0.0"
+  spec.version      = "0.0.1"
   spec.summary      = "Common methods to work with colors."
 
   spec.author       = "Victor Maslov aka Nakilon"
