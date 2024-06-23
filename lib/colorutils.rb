@@ -49,12 +49,13 @@ module ColorUtils
 
   def self.golden_hue
     # https://en.wikipedia.org/wiki/Golden_angle
+    # https://www.wolframalpha.com/input?i=y%3Dax%5E4%2Bbx%5E3%2Bcx%5E2%2Bdx%2C+1%3Da%2Bb%2Bc%2Bd%2C+c%3D4a%2B3b%2B2c%2Bd%2C+1.2%3D4a%281%2F3%29%5E3%2B3b%281%2F3%29%5E2%2B2c%281%2F3%29%2Bd%2C+0.8%3D4a%282%2F3%29%5E3%2B3b%282%2F3%29%5E2%2B2c%282%2F3%29%2Bd%2C+a%3D%3F%2C+b%3D%3F%2C+c%3D%3F%2C+d%3D%3F
     ::Enumerator.new do |e|
-      a = 0
+      a = 0.0
       loop do
-        e << a
-        a += ::Math::PI * (3 - ::Math::sqrt(5))
-        a %= ::Math::PI * 2
+        t = a % 1
+        e << ::Math::PI * 2 * (t*t*t*t - t*t*t*2 + t*t*38/45 + t*52/45)
+        a += (3 - ::Math::sqrt(5)) / 2.0
       end
     end
   end
